@@ -1,0 +1,33 @@
+.edit-container {
+    display: table;
+    margin-left: 15vh;
+    margin-right: 15vh;
+    padding-top: 5vh;
+  }
+
+  .table-filter{
+    float: left;
+    padding-left: 40px;
+    position: relative;
+    height: 38px;
+  }
+
+@media (min-width: 1280px) {
+    .table-filter {
+        width: 540px;
+    }
+}
+
+@media (min-width: 1150px) {
+    .table-filter {
+        width: 340px;
+    }
+}
+
+@media (min-width: 768px) {
+    .table-filter {
+        width: 240px;
+        margin: 10px 0;
+    }
+}
+

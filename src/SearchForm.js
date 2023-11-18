@@ -14,14 +14,15 @@ const SearchForm = (props) => {
     };
 
     return (
-        <div>
+        <div className='container-sm rounded' style={{ margin:'15px'}}>
             <form onSubmit={handleFormSubmit}>
                 <div className='form-group'>
-                    <label htmlFor='search-term'>Search for</label>
+                    <label htmlFor='search-term' style={{fontWeight:'bold'}}>Search for</label>
                     <input
+                        style={{maxWidth:'250px'}}
                         type='text'
                         className='form-control'
-                        placeholder='Enter search term here'
+                        placeholder='Enter players name here'
                         onChange={handleChangeInput}
                     />
                 </div>

@@ -1,15 +1,15 @@
 import React from "react";
 import './Track.css';
 
-const TrackTitle = (props) => {
+const PlayerName = (props) => {
 
 
     return (
         <div className="post-container">
-            <li>{props.trackTitle}</li>
+            <li>{props.name}</li>
             <button onClick={() => props.onGetDetails(props)}>OK</button>
         </div>
     );
 };
 
-export default TrackTitle;
+export default PlayerName;
