@@ -208,7 +208,7 @@ const EditPlayer = (props) => {
         </div>
         <div className="edit-container ">
         <form onSubmit={handleFormSubmit} >
-            <div className="table-filter">
+  
             <table className="table table-responsive-sm table-striped table-dark table-bordered table-hover">
             <thead className="thead-dark text-center">
                 <tr>
@@ -265,7 +265,7 @@ const EditPlayer = (props) => {
                 </tr>
             </tbody>
         </table>
-        </div>
+        
         <div align="center">
             <button type="button" className="text-black font-bold bg-gradient-to-r from-red-500 via-red-550 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-large rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2" onClick={handleCancel}>Cancel</button>
             <button type="submit" className="border-black font-bold text-black bg-gradient-to-r from-teal-400 via-lime-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-teal-800 font-large rounded-lg text-base px-5 py-2.5 text-center me-2 mb-2">Submit</button>
