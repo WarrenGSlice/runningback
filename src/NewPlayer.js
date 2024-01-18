@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import dataSource from "./datasource";
 
 const NewPlayer = (props) => {
-    const [rank, setRank] = useState('');
+    const [ranking, setRank] = useState('');
     const [name, setName] = useState('');
     const [team, setTeam] = useState('');
     const [byeWeek, setByeWeek] = useState('');
@@ -34,7 +34,7 @@ const NewPlayer = (props) => {
 
         console.log("submit");
         const runningback = {
-            rank: rank,
+            ranking: ranking,
             name: name,
             team: team,
             byeWeek: byeWeek,
@@ -150,7 +150,7 @@ const NewPlayer = (props) => {
                 <h1>Create Player</h1>
                 <div className="form-group">
                     <label htmlFor="rank">Player Rank</label>
-                    <input type="text" className="form-control" id="rank" placeholder="Enter Player Rank" value={rank} onChange={updateRank}/>
+                    <input type="text" className="form-control" id="ranking" placeholder="Enter Player Rank" value={ranking} onChange={updateRank}/>
 
                     <label htmlFor="name">Player Name</label>
                     <input type="text" className="form-control" id="name" placeholder="Enter Player Name" value={name} onChange={updateName}/>

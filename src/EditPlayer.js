@@ -212,7 +212,7 @@ const EditPlayer = (props) => {
             <table className="table table-responsive-sm table-striped table-dark table-bordered table-hover">
             <thead className="thead-dark text-center">
                 <tr>
-                    <th scope="col"><label htmlFor="rank">Player Rank</label></th>
+                    <th scope="col"><label htmlFor="ranking">Player Rank</label></th>
                     <th scope="col" ><label htmlFor="name">Player Name</label></th>
                     <th scope="col"><label htmlFor="team">Team Image</label></th>
                     <th scope="col"><label htmlFor="byeWeek">Bye Week</label></th>
@@ -239,7 +239,7 @@ const EditPlayer = (props) => {
             </thead>
             <tbody className="text-left">
                 <tr>
-                    <th scope="row"><input type="text" className="form-control font-bold" id="rank" placeholder="Enter Player Rank" value={rank} onChange={updateRank}/></th>
+                    <th scope="row"><input type="text" className="form-control font-bold" id="ranking" placeholder="Enter Player Rank" value={ranking} onChange={updateRank}/></th>
                     <td ><input type="text" className="form-control font-bold" id="name" placeholder="Enter Player Name" value={name} onChange={updateName} style={{width:'175px'}}/></td>
                     <td><textarea type="text" className="form-control font-bold" id="team" placeholder="Enter Team Image Link" value={team} onChange={updateTeam} style={{width:'200px', height:'140px'}}/></td>
                     <td><input type="text" className="form-control font-bold" id="byeWeek" placeholder="Enter Bye Week" value={byeWeek} onChange={updateByeWeek} style={{width:'45px'}}/></td>

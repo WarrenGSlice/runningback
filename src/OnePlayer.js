@@ -248,7 +248,7 @@ const OnePlayer = (props) => {
                                                                 <div className="stat-label">PPR</div>
                                                                 <div className="stat-wrapper">
                                                                     <div className="stat-value">
-                                                                        <span className="stat-value-text">{props.runningback.rank}</span>
+                                                                        <span className="stat-value-text">{props.runningback.ranking}</span>
                                                                     </div>
                                                                 </div>
                                                             </div>

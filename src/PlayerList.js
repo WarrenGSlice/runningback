@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo, useState } from "react";
 import PlayerCard from "./PlayerCard";
 import { useNavigate } from "react-router-dom";
 import "flowbite";
@@ -7,18 +7,25 @@ import DataSource from "./datasource";
 const PlayerList = (props) => {
 
     const [sortedField, setSortedField] = useState(null);
+    const [sortOrder, setSortOrder] = useState('asc');
 
-    let sortedPlayers = [...props.playerList];
-    console.log('players for sorting', props.playerList);
-    sortedPlayers.sort((a,b) => {
-        if (a.name < b.name) {
-            return -1;
-        }
-        if (a.name > b.name) {
-            return 1;
-        }
-        return 0;
-    });
+    const toggleSortOrder = () => {
+        setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    }
+
+    const sortedPlayers = useMemo(() => {
+        if (!sortedField) return props.playerList;
+
+        return [...props.playerList].sort((a, b) => {
+            if (a[sortedField] < b[sortedField]) {
+                return sortOrder === 'asc' ? -1 : 1;
+            }
+            if (a[sortedField] > b[sortedField]) {
+                return sortOrder === 'asc' ? 1 : -1;
+            }
+            return 0;
+        });
+    }, [props.playerList, sortedField, sortOrder]);
 
     const handleSelectionOne = (rbId, uri) => {
         console.log('Selected ID is ' + rbId);
@@ -65,84 +72,84 @@ const PlayerList = (props) => {
             <thead className="thead-dark">
                 <tr>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('rank')}>Rank</button>
+                        <button onClick={() => {setSortedField('ranking'); toggleSortOrder();}}>Rank</button>
                     </th>
                     <th scope="col">
-                        <button onClick={() => setSortedField('team')}>Team</button>
+                        <button onClick={() =>{ setSortedField('team'); toggleSortOrder();}}>Team</button>
                     </th>
                     <th scope="col" >
-                        <button onClick={() => setSortedField('name')}>Name</button>
+                        <button onClick={() => {setSortedField('name'); toggleSortOrder();}}>Name</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('points')}>Points</button>
+                        <button onClick={() => {setSortedField('points'); toggleSortOrder();}}>Points</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('byeWeek')}>Bye Week</button>
+                        <button onClick={() => {setSortedField('byeWeek'); toggleSortOrder();}}>Bye Week</button>
                     </th>
                     <th scope="col" data-type="number" >
-                        <button onClick={() => setSortedField('rushAttempts')} >Rush Attmps</button>
+                        <button onClick={() => {setSortedField('rushAttempts'); toggleSortOrder();}} >Rush Attmps</button>
                     </th>
                     <th scope="col" >
-                        <button onClick={() => setSortedField('rushYards')}>Rush Yds</button>
+                        <button onClick={() => {setSortedField('rushYards'); toggleSortOrder();}}>Rush Yds</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('rushTds')}>Rush TDs</button>
+                        <button onClick={() => {setSortedField('rushTds'); toggleSortOrder();}}>Rush TDs</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('recs')}>Recs</button>
+                        <button onClick={() => {setSortedField('recs'); toggleSortOrder();}}>Recs</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('recYards')}>Rec Yrds</button>
+                        <button onClick={() => {setSortedField('recYards'); toggleSortOrder();}}>Rec Yrds</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('recTds')}>Rec TDs</button>
+                        <button onClick={() => {setSortedField('recTds'); toggleSortOrder();}}>Rec TDs</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('pointsGame')}>Pts / Game</button>
+                        <button onClick={() => {setSortedField('pointsGame'); toggleSortOrder();}}>Pts / Game</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('fum')}>Fum</button>
+                        <button onClick={() => {setSortedField('fum'); toggleSortOrder();}}>Fum</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('fumLose')}>Fum Lost</button>
+                        <button onClick={() => {setSortedField('fumLose'); toggleSortOrder();}}>Fum Lost</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('firstDowns')}>First Downs</button>
+                        <button onClick={() => {setSortedField('firstDowns'); toggleSortOrder();}}>First Downs</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('hundredGame')}>100-199 Games</button>
+                        <button onClick={() => {setSortedField('hundredGame'); toggleSortOrder();}}>100-199 Games</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('twoHundredGame')}>200+ Games</button>
+                        <button onClick={() => {setSortedField('twoHundredGame'); toggleSortOrder();}}>200+ Games</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('fourtyPlay')}>40+ Plays</button>
+                        <button onClick={() => {setSortedField('fourtyPlay'); toggleSortOrder();}}>40+ Plays</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('fourtyTd')}>40+ TDs</button>
+                        <button onClick={() => {setSortedField('fourtyTd'); toggleSortOrder();}}>40+ TDs</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('passComp')}>Pass Comp</button>
+                        <button onClick={() => {setSortedField('passComp'); toggleSortOrder();}}>Pass Comp</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('passYards')}>Pass Yrds</button>
+                        <button onClick={() => {setSortedField('passYards'); toggleSortOrder();}}>Pass Yrds</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('passTds')}>Pass TDs</button>
+                        <button onClick={() => {setSortedField('passTds'); toggleSortOrder();}}>Pass TDs</button>
                     </th>
                     <th scope="col" data-type="number">
-                        <button onClick={() => setSortedField('targetShare')}>TargetShare</button>
+                        <button onClick={() => {setSortedField('targetShare'); toggleSortOrder();}}>TargetShare</button>
                     </th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 {
-                    props.playerList.map((props) => {
+                    sortedPlayers.map((props) => {
 
                             return (
                                 <tr key={props.rbId}>
-                                <th scope="row">{props.rank}</th>
+                                <th scope="row">{props.ranking}</th>
                                 <td style={{width:'auto', height:'auto'}}><img src={props.team} style={{overflow:'visible',width:'4rem', height:'4rem', backgroundSize:'contain', backgroundPosition:'cover'}} alt="team"/> </td>
                                 <td>{props.name}</td>
                                 <td>{props.points}</td>

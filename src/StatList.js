@@ -41,7 +41,7 @@ const StatList = (props) => {
                     team={props.team}
                     gp={props.gp}
                     points={props.points}
-                    rank={props.rank}
+                    ranking={props.ranking}
                     att={props.att}
                     rushYd={props.rushYd}
                     rushYpc={props.rushYpc}
