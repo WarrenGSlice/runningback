@@ -9,7 +9,7 @@ import './EditPlayer.css';
 const EditPlayer = (props) => {
     // Assume New Player by setting up an empty player and setting the flag newPlayerCreation
     let runningback = {
-        rank: '',
+        ranking: '',
         name:'',
         team:'',
         byeWeek: '',
@@ -44,7 +44,7 @@ const EditPlayer = (props) => {
     };
 
     // runningback is now setup as a edited or new runningback
-    const [rank, setRank] = useState(runningback.rank);
+    const [ranking, setRank] = useState(runningback.rank);
     const [name, setName] = useState(runningback.name);
     const [team, setTeam] = useState(runningback.team);
     const [byeWeek, setByeWeek] = useState(runningback.byeWeek);
@@ -146,7 +146,7 @@ const EditPlayer = (props) => {
         console.log("submit");
         const editedRunningBack = {
             rbId: runningback.rbId,
-            rank: rank,
+            ranking: ranking,
             name: name,
             team: team,
             byeWeek: byeWeek,
